@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUANNI | Electronic Press Kit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="none" stroke="%23ff0066" stroke-width="2" filter="url(%23glow)"/><circle cx="11" cy="12" r="2" fill="%23ff0066" filter="url(%23glow)"/><circle cx="21" cy="12" r="2" fill="%23ff0066" filter="url(%23glow)"/><path d="M 10 20 Q 16 25 22 20" fill="none" stroke="%23ff0066" stroke-width="2" stroke-linecap="round" filter="url(%23glow)"/><defs><filter id="glow"><feGaussianBlur stdDeviation="1.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg>') 16 16, auto;
+        }
+        
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 0, 100, 0.03) 2px,
+                    rgba(255, 0, 100, 0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            z-index: 1;
+        }
+        
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, #000 0%, transparent 100%);
+        }
+        
+        /* Container */
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            padding: 40px 0 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #fff 0%, #ff0066 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .tagline {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            padding: 6px 16px;
+            background: rgba(255, 0, 102, 0.1);
+            border: 1px solid rgba(255, 0, 102, 0.3);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ff0066;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: rgba(255, 0, 102, 0.2);
+            border-color: #ff0066;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.6),
+                        0 0 40px rgba(255, 0, 102, 0.4),
+                        0 0 60px rgba(255, 0, 102, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .location {
+            margin-top: 25px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .location strong {
+            color: #fff;
+        }
+        
+        /* Section styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0066, transparent);
+        }
+        
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ff0066;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            color: #ccc;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        /* Bio sections */
+        .bio-short, .bio-extended {
+            max-width: 900px;
+        }
+        
+        .mythology {
+            background: rgba(255, 0, 102, 0.05);
+            border-left: 3px solid #ff0066;
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        
+        /* Sound & Style */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .spec-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            background: rgba(255, 0, 102, 0.05);
+            border-color: rgba(255, 0, 102, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .spec-label {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 11px;
+            color: #ff0066;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .spec-value {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Performance list */
+        .venue-list {
+            margin-top: 30px;
+        }
+        
+        .region {
+            margin-bottom: 40px;
+        }
+        
+        .region-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff0066;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .venue-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .venue-item:hover {
+            background: rgba(255, 0, 102, 0.05);
+            padding-left: 15px;
+            border-left: 3px solid #ff0066;
+            border-bottom-color: rgba(255, 0, 102, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .venue-item:hover .venue-name {
+            color: #ff0066;
+        }
+        
+        .soundcloud-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            color: #ff6600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .soundcloud-link:hover {
+            color: #ff0066;
+            transform: scale(1.2);
+        }
+        
+        .soundcloud-link svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .venue-name {
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .venue-detail {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Notable Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(255, 0, 102, 0.2);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .project-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        /* Technical requirements */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Links section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .link-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        
+        .link-card:hover {
+            background: rgba(255, 0, 102, 0.1);
+            border-color: #ff0066;
+            transform: scale(1.05);
+        }
+        
+        .link-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .link-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .link-value {
+            font-weight: 600;
+            color: #ff0066;
+        }
+        
+        /* Contact section */
+        .contact-info {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 0, 102, 0.05);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        /* Photo gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 3/4;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .photo-item:hover {
+            border-color: rgba(255, 0, 102, 0.5);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid rgba(255, 0, 102, 0.3);
+            cursor: default;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10000;
+            font-weight: 300;
+        }
+        
+        .lightbox-close:hover {
+            color: #ff0066;
+        }
+        
+        /* Contact section */
+        .contact-info {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 0, 102, 0.05);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .contact-title {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-email {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff0066;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            color: #fff;
+        }
+        
+        .contact-location {
+            margin-top: 15px;
+            color: #666;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 13px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 48px;
+                letter-spacing: 4px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+        }
+        
+        /* Glitch effect on hover for logo */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        
+        .logo:hover {
+            animation: glitch 0.3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <div class="hero-banner">
+        <img src="photos/banner.jpg" alt="Suanni Performance">
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo"><img src="photos/logo.png" alt="SUANNI" style="max-width: 400px; width: 100%; height: auto;"></div>
+            <div class="tagline">Techno built for warehouses, open air, and late night ritual.</div>
+            
+            <div class="genre-tags">
+                <span class="tag">Hard Techno</span>
+                <span class="tag">Bounce</span>
+                <span class="tag">Tribal</span>
+                <span class="tag">Hard Grooves</span>
+                <span class="tag">Schranz</span>
+                <span class="tag">Industrial</span>
+            </div>
+            
+            <div class="location">
+                <strong>Based in:</strong> San Francisco · NYC / Berlin connected<br>
+                <strong>Label / Platform:</strong> 969
+            </div>
+        </header>
+        
+        <section class="bio-short">
+            <h2>Artist Bio</h2>
+            <p>Suanni is a techno DJ and producer blending industrial pressure, dark groove, and bounce. Inspired by Berlin's underground and ancient myth, her sound is raw, driving, and ritualistic built for late night warehouses and high energy dance floors.</p>
+            <p>Having studied music in Berlin and lived in New York City, Suanni brings a global perspective to her sets, moving between fast, punishing rhythms and sensual tension to create an immersive experience that feels both modern and timeless.</p>
+            <p>Suanni is a San Francisco based DJ and producer delivering high energy hard bounce and groove driven techno built for movement, release, and collective intensity. Shaped by time studying music production in Berlin, her sound draws from underground warehouse culture, late night dance floors, and fast, pressure driven club energy.</p>
+            <p>Her sets blend hard bounce, hard groove, industrial textures, and hard techno, driven by punchy low end, rolling percussion, and hypnotic, bouncy rhythms. With a strong focus on flow and momentum, Suanni designs her sets around cycles of tension and release locking bodies in and keeping the floor moving without distraction.</p>
+            <p>Suanni has performed across clubs, warehouses, open air renegades, and underground events, supporting artists such as <strong style="color: #ff0066;">Deborah De Luca, ØTTA, Funk Tribu, Southstar, Somewhen, Franck, Dani Thorne & MCYL</strong>.</p>
+            <p>Expect fast tempos, physical grooves, and an atmosphere built for sweat, movement, and release.</p>
+        </section>
+        
+        <section class="bio-extended">
+            <div class="mythology">
+                <strong>🐉 The Mythology:</strong> Suanni's name is inspired by the mythical 狻猊 (Suanni), a dragon lion associated with smoke, fire, patience, and power. That mythology is reflected in her sound: controlled intensity, cinematic build ups, and relentless momentum.
+            </div>
+        </section>
+        
+        <section>
+            <h2>Press Photos</h2>
+            
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="photos/1.png" alt="Suanni Press Photo 1">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/2.jpg" alt="Suanni Press Photo 2">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/4.jpg" alt="Suanni Press Photo 4">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/5.jpg" alt="Suanni Press Photo 5">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/6.jpg" alt="Suanni Press Photo 6">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/7.jpg" alt="Suanni Press Photo 7">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/8.jpg" alt="Suanni Press Photo 8">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/9.jpg" alt="Suanni Press Photo 9">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/10.jpg" alt="Suanni Press Photo 10">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/11.jpg" alt="Suanni Press Photo 11">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/12.jpg" alt="Suanni Press Photo 12">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/13.jpg" alt="Suanni Press Photo 13">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/14.jpg" alt="Suanni Press Photo 14">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/15.jpg" alt="Suanni Press Photo 15">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/16.jpg" alt="Suanni Press Photo 16">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/17.jpg" alt="Suanni Press Photo 17">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/18.jpg" alt="Suanni Press Photo 18">
+                </div>
+                <div class="photo-item">
+                    <img src="photos/20.jpg" alt="Suanni Press Photo 20">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Sound & Style</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-label">BPM Range</div>
+                    <div class="spec-value">150–165</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Mood</div>
+                    <div class="spec-value">Dark • Hypnotic • Industrial • Energetic</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Influences</div>
+                    <div class="spec-value">Berlin warehouse techno, ritual rave culture, hard bounce movement</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Live Feel</div>
+                    <div class="spec-value">High energy, immersive, minimal mic use, crowd focused</div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section>
+            <h2>Performance Highlights</h2>
+            <p>Suanni has performed across clubs, underground warehouses, open air renegades, and international showcases, trusted by established collectives and venues in the US and Asia, with Berlin linked programming.</p>
+            
+            <div class="venue-list">
+                <div class="region">
+                    <div class="region-title">🇺🇸 United States</div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">Public Works | San Francisco</div>
+                            <div class="venue-detail">Supporting Somewhen, Franck, MCYL</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                1015 Folsom | Factory 93 | San Francisco
+                                <a href="https://on.soundcloud.com/gECkpBK6tfn0owqZlR" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Supporting Funk Tribu & Southstar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                Midway | Factory 93 | San Francisco
+                                <a href="https://on.soundcloud.com/AjZ4Zfom9YTrk7YA90" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Supporting Deborah De Luca, ØTTA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                F8 Nightclub | Connect Techno | San Francisco
+                                <a href="https://on.soundcloud.com/tU7kzHIWjyvFNDhOMM" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Supporting Dani Thorne and multiple showcases for Connect Techno</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                Cave Rave | San Francisco | Oakland
+                                <a href="https://on.soundcloud.com/CRwPpG6uhulRIZ7pau" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Blink 182 Venue, Supported Dani Thorne, Underground Chinatown Rave, Live Wrestling Rave</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                Reverb | Spin & Destroy | San Francisco
+                                <a href="https://on.soundcloud.com/UyoNkPhTQdG0Ge02sI" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Adrenaline</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">
+                                Blacklist Rave | Bad Apple Records | Oakland
+                                <a href="https://on.soundcloud.com/nDj2TrKWjkcdOQl1Bo" target="_blank" class="soundcloud-link" title="Listen on SoundCloud">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.714-1.304-3.106-2.911-3.106-.384 0-.751.072-1.09.201l-.12.09z"/></svg>
+                                </a>
+                            </div>
+                            <div class="venue-detail">Supported Okayval</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">Ashes of Eden | 969 | San Francisco</div>
+                            <div class="venue-detail">Open-air renegade (secret location)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">Club Six | 15 Utah & DJ Dials | San Francisco</div>
+                            <div class="venue-detail">Direct support for Club Angel</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-title">🌍 International</div>
+                    
+                    <div class="venue-item">
+                        <div>
+                            <div class="venue-name">Berlin Party Tokyo (Shibuya, Tokyo, Japan)</div>
+                            <div class="venue-detail">Headliner, Underground showcase with Berlin based collective</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Notable Projects</h2>
+            
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-title">Ashes of Eden</div>
+                    <div class="project-desc">Open-air renegade techno event</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">969 Events / Club Nights</div>
+                    <div class="project-desc">Community driven techno experiences</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Technical Requirements</h2>
+            
+            <div class="tech-grid">
+                <div class="spec-card">
+                    <div class="spec-label">Preferred Players</div>
+                    <div class="spec-value">CDJ-3000</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Preferred Mixers</div>
+                    <div class="spec-value">Pioneer A9 / A10 or Xone 96</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Set Types</div>
+                    <div class="spec-value">Support, peak time, and closing sets</div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-label">Environment</div>
+                    <div class="spec-value">Club, warehouse, open-air</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Connect</h2>
+            
+            <div class="links-grid">
+                <a href="https://instagram.com/Suanni.969" class="link-card" target="_blank">
+                    <div class="link-icon">📸</div>
+                    <div class="link-label">Instagram</div>
+                    <div class="link-value">@Suanni.969</div>
+                </a>
+                
+                <a href="https://soundcloud.com/Suanni969" class="link-card" target="_blank">
+                    <div class="link-icon">🎵</div>
+                    <div class="link-label">SoundCloud</div>
+                    <div class="link-value">@Suanni969</div>
+                </a>
+                
+                <a href="https://instagram.com/969.mix" class="link-card" target="_blank">
+                    <div class="link-icon">🎚️</div>
+                    <div class="link-label">Event / Mix Series</div>
+                    <div class="link-value">@969.mix</div>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-title">Booking & Press Inquiries</div>
+                <a href="mailto:suanni@969label.com" class="contact-email">suanni@969label.com</a>
+                <div style="margin-top: 15px; font-size: 16px; color: #ccc;">Or DM <a href="https://instagram.com/Suanni.969" target="_blank" style="color: #ff0066; text-decoration: none;">@Suanni.969</a></div>
+                <div class="contact-location">📍 San Francisco • NYC • Berlin</div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>SUANNI • 2026 • 969 LABEL</p>
+        </footer>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Press Photo">
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const photoItems = document.querySelectorAll('.photo-item img');
+        
+        // Open lightbox when clicking on a photo
+        photoItems.forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightboxImg.src = this.src;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        // Close lightbox when clicking outside the image or on close button
+        lightbox.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+        });
+        
+        lightboxClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            lightbox.classList.remove('active');
+        });
+        
+        // Prevent closing when clicking on the image itself
+        lightboxImg.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    
+  
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
